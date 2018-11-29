@@ -1,0 +1,32 @@
+.lab-spc a.label {
+    margin-right: 5px;
+}
+.lab-spc a.label:hover,.lab-spc a.label:focus{color:#fff;}
+.top-text  th {
+    vertical-align: top;
+}
+
+.table-bordered  th {
+    border: 1px solid;
+    background: #1976d2;
+    color: #fff;
+    font-size: 12px;
+}
+.label.label-info.m-r-10 {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.label label-danger m-r-10 {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.custom-control{display:inline;}
+.custom-control-label{top:-15px;}
+.sepsrch {
+    min-height: 20px;
+    font-size: 12px;
+    line-height: 13px;
+}
+.maindiv .form-group{margin-bottom:5px;}

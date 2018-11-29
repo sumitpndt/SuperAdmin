@@ -1,0 +1,157 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+      <div class="alert alert-danger mt-3" role="alert" *ngIf="err_message!=null">
+          {{ err_message }}
+      </div>
+      <br>
+        <form class="form" [formGroup]="companyProfileform"  (ngSubmit)="companyProfile()">  
+        <h3 class="box-title m-b-20">{{title}}</h3> 
+		<div class="row">
+        <div class="col-md-6 col-sm-6">
+        <div class="form-group ">
+		<label>Company Name</label>
+              <input type="text" formControlName="company_name" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_name.errors }" placeholder="company name"/>
+              <div *ngIf="submitted && companyproUserData.company_name.errors" class="invalid-feedback">
+            <div *ngIf="companyproUserData.company_name.errors.required">Company Name is required</div>
+              </div>
+            </div>
+        </div>
+          <div class="col-md-6 col-sm-6"> 
+        <div class="form-group ">
+		<label>license Number</label>
+            <input type="text" formControlName="license_no" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.license_no.errors }" placeholder="license Number"/>
+            <div *ngIf="submitted && companyproUserData.license_no.errors" class="invalid-feedback">
+          <div *ngIf="companyproUserData.license_no.errors.required">license Number is required</div>
+            </div>
+          </div>
+      </div>
+   
+          <div class="col-md-6 col-sm-6">    
+          <div class="form-group ">
+		  <label>Company Address</label>
+              <input type="text" formControlName="company_address" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_address.errors }" placeholder="company address"/>
+              <div *ngIf="submitted && companyproUserData.company_address.errors" class="invalid-feedback">
+            <div *ngIf="companyproUserData.company_address.errors.required">Company Address is required</div>
+              </div>
+            </div>
+          </div>
+		  
+          <div class="col-md-6 col-sm-6"> 
+          <div class="form-group ">
+		  <label>Company Malling Address</label>
+              <input type="text" formControlName="company_mailing_address" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_mailing_address.errors }" placeholder="Mailing address"/>
+              <div *ngIf="submitted && companyproUserData.company_mailing_address.errors" class="invalid-feedback">
+            <div *ngIf="companyproUserData.company_mailing_address.errors.required">Company Malling Address is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">           
+          <div class="form-group ">
+		  <label>Company contact name</label>
+              <input type="text" formControlName="company_contact_number" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_contact_number.errors }" placeholder="contact number"/>
+              <div *ngIf="submitted && companyproUserData.company_contact_number.errors" class="invalid-feedback">
+            <div *ngIf="companyproUserData.company_contact_number.errors.required">Company contact name is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6"> 
+            <div class="form-group ">
+			<label>Country</label>
+                <input type="text" formControlName="company_country" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_country.errors }" placeholder="Country"/>
+                <div *ngIf="submitted && companyproUserData.company_country.errors" class="invalid-feedback">
+              <div *ngIf="companyproUserData.company_country.errors.required">Country is required</div>
+                </div>
+              </div>
+            </div> 
+
+          <div class="col-md-6 col-sm-6"> 
+          <div class="form-group ">
+		  <label>Company email</label>
+              <input type="text" formControlName="company_email" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_email.errors }" placeholder="company email"/>
+              <div *ngIf="submitted && companyproUserData.company_email.errors" class="invalid-feedback">
+            <div *ngIf="companyproUserData.company_email.errors.required">Company email is required</div>
+            <div *ngIf="companyproUserData.company_email.errors.pattern">Wrong Email Format</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- <div class="form-group ">
+              <div class="col-xs-12"> 
+                <input type="text" formControlName="company_website" class="form-control" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_website.errors }" placeholder="company website"/>
+                <div *ngIf="submitted && companyproUserData.company_website.errors" class="invalid-feedback">
+              <div *ngIf="companyproUserData.company_website.errors.required">Company website is required</div>
+                </div>
+              </div>
+            </div>  -->
+			
+          
+			
+          <div class="col-md-6 col-sm-6"> 
+            <div class="form-group ">
+			<label>Pin Code</label>
+                <input type="text" formControlName="company_pincode" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_pincode.errors }" placeholder="Pin Code"/>
+                <div *ngIf="submitted && companyproUserData.company_pincode.errors" class="invalid-feedback">
+              <div *ngIf="companyproUserData.company_pincode.errors.required">Pin Code is required</div>
+                </div>
+              </div>
+            </div> 
+      
+            <div class="col-md-6 col-sm-6"> 
+              <div class="form-group ">
+        <label>Password</label>
+                  <input type="password" formControlName="company_password" class="form-control sepsrch" placeholder="Password"/>
+                </div>
+              </div> 
+          <!-- <div class="col-md-6 col-sm-6"> 
+            <div class="form-group ">
+			<label>Password</label>
+                <input type="password" formControlName="company_password" class="form-control sepsrch" [ngClass]="{ 'is-invalid': submitted && companyproUserData.company_password.errors }" placeholder="Password"/>
+                <div *ngIf="submitted && companyproUserData.company_password.errors" class="invalid-feedback">
+              <div *ngIf="companyproUserData.company_password.errors.required">Password is required</div>
+                </div>
+              </div>
+            </div>  -->
+            <!-- <div class="form-group ">
+              <div class="col-xs-12"> 
+                <input type="text" formControlName="NoofUsers" class="form-control" [ngClass]="{ 'is-invalid': submitted && companyproUserData.NoofUsers.errors }" placeholder="No of Logins"/>
+                <div *ngIf="submitted && companyproUserData.NoofUsers.errors" class="invalid-feedback">
+              <div *ngIf="companyproUserData.NoofUsers.errors.required">No of Logins is required</div>
+                </div>
+              </div>
+            </div>  -->
+           
+            <!-- <div class="form-group ">
+              <div class="col-xs-12"> 
+               
+               <select formControlName="payment_status" class="form-control">
+<option value="Paid" selected>Paid</option>
+<option value="UnPaid">UnPaid</option>
+               </select>
+             
+              </div>
+            </div>   -->
+          <div class="col-md-6 col-sm-6"> 
+            <div class="form-group ">
+			<label>Select Plan</label>
+               <select formControlName="company_plan_id" class="form-control sepsrch">
+                  <!-- <option value="0">--Select--</option>    -->
+                <option *ngFor="let plan of planList"  
+                        value={{plan.id}}>  
+                    {{plan.plan_name}}  
+                </option> 
+               </select>
+             
+              </div>
+            </div>  
+<div class="form-actions"><div class="col-md-12">
+<button class="btn btn-info m-r-10" type="submit">Save</button><button class="btn btn-danger" type="button" (click)="Cancel()">Cancel</button></div></div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">FAQ</h4>
+        <div class="profiletimeline m-t-40 faqbox">
+ <div class="row">
+    <div class="col-12">
+
+        <div class="card" *ngFor="let faqshow of faqshows">
+        	<div class="card-body incard">
+        		<ngb-accordion [closeOthers]="true" activeIds="static-1" class="accordion">
+				  <ngb-panel id="static-1" title="{{ faqshow.question }}">
+				    <ng-template ngbPanelContent>
+				      {{faqshow.answer}}<br>
+					  <!--<a href=""><i class="mdi mdi-pencil" data-name="mdi-pencil"></i> Edit</a>-->
+				    </ng-template>
+				  </ngb-panel>
+				  
+				  
+				</ngb-accordion>
+        	</div>
+        </div>
+		
+		<div class="col-lg-2 col-md-4"><button class="btn btn-rounded btn-block btn-outline-danger" type="button">Add More</button></div>
+
+                     
+    </div>
+</div>
+        </div>
+    </div>
+</div>

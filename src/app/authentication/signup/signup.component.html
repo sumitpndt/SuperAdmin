@@ -1,0 +1,81 @@
+<div class="login-register" style="background-image:url(assets/images/background/login-register.jpg);">
+  <div class="login-box card">
+    <div class="card-body">
+        <div class="alert alert-danger mt-3" role="alert" *ngIf="err_message!=null">
+            {{ err_message }}
+        </div>
+        <br>
+        <form class="form" [formGroup]="registerform"  (ngSubmit)="registerUser()">
+        <h3 class="box-title m-b-20">Sign Up</h3>
+
+        <div class="form-group ">
+          <div class="col-xs-12"> 
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerUserData.name.errors }" placeholder="Enter your name"/>
+            <div *ngIf="submitted && registerUserData.name.errors" class="invalid-feedback">
+                <div *ngIf="registerUserData.name.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group ">
+          <div class="col-xs-12"> 
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerUserData.email.errors }" placeholder="Enter email"/>
+            <div *ngIf="submitted && registerUserData.email.errors" class="invalid-feedback">
+                <div *ngIf="registerUserData.email.errors.required">Email is required</div>
+                <div *ngIf="registerUserData.email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">            
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerUserData.password.errors }" placeholder="Enter your Password" />
+              <div *ngIf="submitted && registerUserData.password.errors" class="invalid-feedback">
+                  <div *ngIf="registerUserData.password.errors.required">Password is required</div>
+                  <div *ngIf="registerUserData.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-12">            
+              <input type="password" formControlName="confirmpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerUserData.confirmpassword.errors }" placeholder="Confirm password is required" />
+              <div *ngIf="submitted && registerUserData.confirmpassword.errors" class="invalid-feedback">
+                  <div *ngIf="registerUserData.confirmpassword.errors.required">Confirm Password is required</div>
+                  <div *ngIf="registerUserData.confirmpassword.errors.minlength">Confirm Password must be at least 6 characters</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+              <div class="col-md-12">
+                <div class="checkbox checkbox-success p-t-0">
+
+                  <input type="checkbox" formControlName="checkboxsignup" class="filled-in chk-col-light-blue" [ngClass]="{ 'is-invalid': submitted && registerUserData.checkboxsignup.errors }" />
+                  <label for="checkbox-signup"> I agree to all <a href="javascript:void(0)">Terms</a></label>
+                  <div *ngIf="submitted && registerUserData.checkboxsignup.errors" class="invalid-feedback">
+                      <div *ngIf="registerUserData.checkboxsignup.errors.required">Terms is required</div>
+                  </div>
+    
+                </div>
+              </div>
+            </div>
+          
+        
+        <div class="form-group text-center p-b-20">
+          <div class="col-xs-12">
+            
+            <button (click)="registerUser()" class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light">Sign Up</button>  
+
+          </div>
+        </div>
+        <div class="form-group m-b-0">
+          <div class="col-sm-12 text-center">
+            Already have an account? <a class="text-info m-l-5" [routerLink]="['/authentication/login']"><b>Sign In</b></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

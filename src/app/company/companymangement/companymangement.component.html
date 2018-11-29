@@ -1,0 +1,157 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+		
+            <div class="card-body">
+                <div class="row pricing-plan">
+				<div class="col-md-8 col-sm-8">
+                	<form class="form" [formGroup]="SearchForm"  (ngSubmit)="SearchCompany()">
+                        <h3>Search</h3>
+                        <div class="row">
+                        <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <!-- <span class="input-group-text" id="basic-addon11"><i class="fa fa-calendar"></i></span> -->
+                            </div>
+                            <!-- <input aria-describedby="basic-addon11" formControlName="fromDate" [ngClass]="{ 'is-invalid': submitted && SearchData.fromDate.errors }" aria-label="Username"  class="form-control sepsrch" placeholder="From" type="date"> -->
+                            <input id="fromDate" class="form-control" formControlName="fromDate" [ngClass]="{ 'is-invalid': submitted && SearchData.fromDate.errors }" placeholder="FromDate" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="fa fa-calendar" (click)="dp.toggle()" type="button"></button>
+                              </div>
+                            <div *ngIf="submitted && SearchData.fromDate.errors" class="invalid-feedback">
+                                <div *ngIf="SearchData.fromDate.errors.required">From Date is required</div>
+                                  </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <!-- <span class="input-group-text" id="basic-addon11"><i class="fa fa-calendar"></i></span> -->
+                            </div>
+                            <!-- <input aria-describedby="basic-addon11" formControlName="toDate" [ngClass]="{ 'is-invalid': submitted && SearchData.toDate.errors }" aria-label="Username" class="form-control sepsrch" placeholder="To" type="date"> -->
+                            <input id="toDate" class="form-control" formControlName="toDate" [ngClass]="{ 'is-invalid': submitted && SearchData.toDate.errors }" placeholder="ToDate" name="toDate" ngbDatepicker #toDate="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="fa fa-calendar" (click)="toDate.toggle()" type="button"></button>
+                              </div>
+                            <div *ngIf="submitted && SearchData.toDate.errors" class="invalid-feedback">
+                                <div *ngIf="SearchData.toDate.errors.required">To Date is required</div>
+                                  </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                            <div class="form-group"><input type="text" style="height:38px" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" placeholder="Search here..." class="form-control sepsrch"/></div>
+                            </div>
+                            </div>
+                        <div class="col-md-3">
+                        <div class="form-group">
+                        <button type="submit" class="label label-info">Search</button>
+                        </div>
+                        </div>
+        
+                        </div>
+                        
+                        </form>
+                
+				</div>
+				<div class="col-md-4 col-sm-4">
+				<div class="top-btn text-right">
+						<a class="label label-info pull-right mt-10" href="#/company/profile">Add Company Profile</a><br/>
+						<a class="label label-danger pull-right mt-10" style="cursor:pointer" (click)="DeleteCompany()">Delete Company</a>
+						
+				</div>
+				</div>
+
+				<h3>Company list</h3>
+<div class="table-responsive">
+     <table class="table table-striped table-bordered" >
+        <thead class="top-text">
+            <tr>
+                <th> Action </th>
+                <th>Sr. No.</th>
+                <th>Company<br>Name</th>
+                <th>license No</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Pincode</th>
+                <th>Eamil Id</th>
+                <th>Phone</th>
+                <th>Plan</th>
+                <th>No of Users</th>
+				<th>Action</th> 
+            </tr>
+        </thead>
+        <tbody class="td-tab" >
+            <tr *ngFor="let company of companyList | filter:{company_name:searchText,license_no:searchText,address_office:searchText,country:searchText,pincode:searchText,email_id:searchText,phone:searchText,plan_name:searchText}| paginate: { itemsPerPage: 5, currentPage: p }; let idx=index">
+                <td>
+				
+					<div class="custom-control custom-checkbox custom-checkbox mr-sm-2">
+					<input class="custom-control-input" id="{{company.id}}" type="checkbox" value="{{company.id}}" (change)="onCheckboxChange(company,$event)">
+					<label class="custom-control-label" for="{{company.id}}"></label>
+					</div>
+				</td>
+                <td>{{idx+1}}</td>
+                <td>{{company.company_name}}</td>
+                <td>{{company.license_no}}</td>
+                <td>{{company.address_office}}</td>
+                <td>{{company.country}}</td>
+                <td>{{company.pincode}}</td>
+                <td>{{company.email_id}}</td>
+                <td>{{company.phone}}</td>
+                <td>
+					{{company.plan_name}}				
+                </td>
+                <td>
+                    {{company.no_of_login}}
+                </td>
+                <td align="center">
+                    <button type="button" *ngIf="company.active=='Inactive'" (click)="ActiveInactiveCompany(company.id,'Active')" class="label label-info mt-10">Active</button>
+                    <button type="button" *ngIf="company.active=='Active'" (click)="ActiveInactiveCompany(company.id,'InActive')" class="label label-info mt-10">InActive</button>
+                    <button class="label label-danger mt-10" type="button" (click)="DeleteCompanyById(company.id)" >Delete</button>
+                    <button type="button" (click)="EditCompany(company)" class="label label-info mt-10">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <div class="alert alert-danger mt-12" style="width:195px" role="alert" *ngIf="message!=null">
+            {{ message }}
+        </div>
+        
+    </table> 
+</div>
+				<!-- <h3>Company list for Approval</h3>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Account Name</th>
+                <th>Home Address</th>
+                <th>Office Address</th>
+                <th>Contact Details</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let unapprove of unApprovedList; let i=index">
+            <tr>
+                <td>{{unapprove.company_name}}</td>
+                <td>{{unapprove.username}}</td>
+                <td>{{unapprove.address_home}}</td>
+                <td>{{unapprove.address_office}}</td>
+                <td>{{unapprove.phone}}  </td>
+                <td><a class="btn btn-success btn-rounded waves-effect waves-light m-t-20" href="#">Approve</a></td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+.lab-spc a.label {
+    margin-right: 5px;
+}
+.lab-spc a.label:hover,.lab-spc a.label:focus{color:#fff;}

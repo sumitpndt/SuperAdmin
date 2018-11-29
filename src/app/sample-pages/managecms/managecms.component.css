@@ -1,0 +1,13 @@
+.lab-spc a.label {
+    margin-right: 5px;
+}
+.lab-spc a.label:hover,.lab-spc a.label:focus{color:#fff;}
+
+.tittlehead a{float:right;}
+.statusrow .custom-control.custom-radio.pull-left {
+    margin-left: -15px;
+    width: 100px;
+}
+.tittlehead a {
+    font-size: 20px;
+}

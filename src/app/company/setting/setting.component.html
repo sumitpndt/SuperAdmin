@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+      <div class="alert alert-danger mt-3" role="alert" *ngIf="err_message!=null">
+          {{ err_message }}
+      </div>
+      <br>
+        <form class="form" [formGroup]="companySettingform"  (ngSubmit)="companySetting()" enctype="multipart/form-data">  
+
+        <h3 class="box-title m-b-20">Profile Setting</h3> 
+        <!--
+          <div class="form-group ">
+            <div class="col-xs-12"> 
+              <input type="file" formControlName="image" name="image" id="image" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.image.errors }"/>
+			        <div *ngIf="submitted && companysettingUserData.image.errors" class="invalid-feedback">
+			        <div *ngIf="companysettingUserData.image.errors.required">Image is required</div>
+              </div>
+            </div>
+          </div>
+       -->
+          <div class="form-group ">
+            <div class="col-xs-12"> 
+              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.email.errors }" placeholder="Enter your email address"/>
+              <div *ngIf="submitted && companysettingUserData.email.errors" class="invalid-feedback">
+            <div *ngIf="companysettingUserData.email.errors.required">Enter your email address</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <div class="col-xs-12"> 
+              <input type="text" formControlName="phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.phonenumber.errors }" placeholder="Enter your phone Number"/>
+              <div *ngIf="submitted && companysettingUserData.phonenumber.errors" class="invalid-feedback">
+            <div *ngIf="companysettingUserData.phonenumber.errors.required">Phone Number is required</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group ">
+            <div class="col-xs-12"> 
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.password.errors }" placeholder="Enter your new password"/>
+              <div *ngIf="submitted && companysettingUserData.password.errors" class="invalid-feedback">
+            <div *ngIf="companysettingUserData.password.errors.required">New password is required</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group ">
+            <div class="col-xs-12"> 
+              <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.address.errors }" placeholder="Enter your address"/>
+              <div *ngIf="submitted && companysettingUserData.address.errors" class="invalid-feedback">
+            <div *ngIf="companysettingUserData.address.errors.required">Enter your address</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group ">
+              <div class="col-xs-12"> 
+                <input type="text" formControlName="facebook" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.facebook.errors }" placeholder="Enter your facebook link"/>
+                <div *ngIf="submitted && companysettingUserData.facebook.errors" class="invalid-feedback">
+              <div *ngIf="companysettingUserData.facebook.errors.required">Enter your Facebook</div>
+                </div>
+              </div>
+            </div> 
+
+
+			    <div class="form-group ">
+              <div class="col-xs-12"> 
+                <input type="text" formControlName="twitter" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.twitter.errors }" placeholder="Enter your twitter link"/>
+                <div *ngIf="submitted && companysettingUserData.twitter.errors" class="invalid-feedback">
+              <div *ngIf="companysettingUserData.twitter.errors.required">Enter your Twitter</div>
+                </div>
+              </div>
+            </div>
+
+
+			    <div class="form-group ">
+              <div class="col-xs-12"> 
+                <input type="text" formControlName="youtube" class="form-control" [ngClass]="{ 'is-invalid': submitted && companysettingUserData.youtube.errors }" placeholder="Enter your youtube link"/>
+                <div *ngIf="submitted && companysettingUserData.youtube.errors" class="invalid-feedback">
+              <div *ngIf="companysettingUserData.youtube.errors.required">Enter your Youtube</div>
+                </div>
+              </div>
+            </div>
+           
+
+        <div class="form-group text-center p-b-20">
+          <div class="col-xs-12">
+            <button class="btn btn-info btn-lg btn-rounded text-uppercase waves-effect waves-light">Submit</button>  
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

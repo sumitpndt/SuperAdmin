@@ -1,0 +1,35 @@
+.top-btn {
+    width: 100%;
+    float: left;
+    padding: 0 10px 20px;
+    border: 1px dashed #1976d2; margin-bottom:20px;
+}
+.top-btn  a{margin-right:15px;}
+.table-bordered th{border:1px solid; background: #1976d2; color:#fff; font-size:12px;}
+.table-bordered td{font-size:12px;}
+.top-text th{vertical-align:top;}
+.top-text th:nth-Child(13) table tr {
+    background: none!important;
+    margin: 0;
+}
+.top-text th:nth-Child(13) table tr td{border-bottom:none;}
+.top-text th:nth-Child(13) table tr td{border-bottom:none;}
+.top-text th:nth-Child(13){padding:0;}
+.td-tab td:nth-Child(13){padding:0;}
+.td-tab td:nth-Child(13) table tr {
+    background: none!important;
+    margin: 0;
+}
+.td-tab td:nth-Child(13) table tr td{border-bottom:none;}
+.table td, .table th {
+    border-color: #ccc;
+}
+.top-text th:nth-Child(6){min-width:200px; max-width:200px;}
+.top-text th:nth-Child(10){min-width:150px; max-width:150px;}
+.com-logo{max-width:60px; height:auto;}
+
+.full-row{float:left; width:100%;}
+.fulladd .form-group{margin-bottom:0;}
+form.fulladd.ng-untouched.ng-pristine.ng-valid {
+    width: 100%;
+}

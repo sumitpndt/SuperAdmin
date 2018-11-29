@@ -1,0 +1,87 @@
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-12 col-xlg-12 col-md-12">
+        <div class="card">
+		 <div class="card-body">
+		<h3>Personal info</h3>
+		</div>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-lg-4 col-xlg-4 col-md-4">
+	  <div class="card-body">
+        <div class="text-center">
+          <img src="{{imageUrl}}" class="img-circle" style=" height: 150px;width: 150px;" alt="avatar">
+          <h6 class="text-left">Upload a different photo...</h6>
+          
+          <input type="file"id="file" (change)="fileChange($event)" accept=".png,.jpg">
+        </div>
+      </div>
+      </div>
+      
+      <!-- edit form column -->
+      <div class="col-lg-8 col-xlg-8 col-md-8 personal-info">
+ <div class="card-body">
+        
+        
+        <form class="form" [formGroup]="EditProfileform"  (ngSubmit)="UpdateProfile();">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" name="name" type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && ProfileData.name.errors }">
+              <div *ngIf="submitted && ProfileData.name.errors" class="invalid-feedback">
+                  <div *ngIf="ProfileData.name.errors.required">Name is required</div>
+                    </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Phone:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" name="phone" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && ProfileData.phone.errors }">
+              <div *ngIf="submitted && ProfileData.phone.errors" class="invalid-feedback">
+                  <div *ngIf="ProfileData.phone.errors.required">Phone is required</div>
+                    </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && ProfileData.email.errors }">
+              <div *ngIf="submitted && ProfileData.email.errors" class="invalid-feedback">
+                  <div *ngIf="ProfileData.email.errors.required">Email is required</div>
+                  <div *ngIf="ProfileData.email.errors.pattern">Wrong Email Format</div>
+                    </div>
+            </div>
+          </div>
+          <div class="form-group">
+		   <label class="col-md-3 control-label">Password:</label>
+		   <div class="col-md-8">
+			<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			<span class="input-group-text" id="basic-addon11"><i class="fa fa-eye"></i></span>
+			</div>
+      <input aria-describedby="basic-addon11" aria-label="Username" name="Password" class="form-control sepsrch" formControlName="Password" type="password"></div>  
+      <!-- <div *ngIf="submitted && ProfileData.Password.errors" class="invalid-feedback">
+          <div *ngIf="ProfileData.Password.errors.required">Password is required</div>
+            </div> -->
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="submit" class="btn btn-primary m-r-10" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+  </div>		
+		
+    </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+ 
+    <!-- Column -->
+</div>
