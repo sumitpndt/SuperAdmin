@@ -28,7 +28,7 @@ import { ListFaqComponent } from './company/list-faq/list-faq.component';
 import { DashboardService } from './dashboards/dashboardservice';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ToastModule,ToastOptions} from 'ng6-toastr/ng2-toastr';
-
+import {CompanyfilterComponent} from '../app/company/Filter/companyfilter.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -45,7 +45,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NavigationComponent,
     BreadcrumbComponent,
     SidebarComponent,
-    ListFaqComponent
+    ListFaqComponent,
+    CompanyfilterComponent
   ],
   imports: [
     CommonModule,

@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
     registerform: FormGroup;
     submitted = false;
-    //err_message : string;
+    err_message : string;
 
     constructor(private _auth:AuthService, private _router: Router, private _app: AppComponent, private formBuilder: FormBuilder){}
 

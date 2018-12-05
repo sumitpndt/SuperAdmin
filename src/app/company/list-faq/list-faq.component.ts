@@ -14,21 +14,17 @@ import { Http, Headers, Response } from '@angular/http';
 export class ListFaqComponent implements OnInit {
   //faqs : FaqList[];
   constructor(private _auth:AuthService, private _router : Router,private _app : AppComponent, private formBuilder: FormBuilder) {}
-  ngOnInit() {
-
-  }
   
-  //users: FaqList[];
+  
+ // users: [];
+  ngOnInit() {
+    
+  }
 /*
   constructor(private router: Router) { }
 
-  ngOnInit() {
-    this.userService.getUsers()
-      .subscribe( data => {
-        this.users = data;
-      });
-  }
-
+  
+/*
   deleteUser(user: User): void {
     this.userService.deleteUser(user.id)
       .subscribe( data => {
@@ -41,9 +37,9 @@ export class ListFaqComponent implements OnInit {
     localStorage.setItem("editUserId", user.id.toString());
     this.router.navigate(['edit-user']);
   };
-
+*/
   addUser(): void {
-    this.router.navigate(['add-user']);
+    this._router.navigate(['add-user']);
   };
-  */
+  
 }

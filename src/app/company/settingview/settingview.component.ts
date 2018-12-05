@@ -35,4 +35,7 @@ export class SettingviewComponent implements OnInit {
             }
           )
     }   	
+    open2(abc){
+      
+    }
 }

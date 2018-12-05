@@ -30,7 +30,7 @@ import {SamplePageService} from '../sample-pages/SamplePagesServices';
     InvoiceComponent,
     ProfileComponent,
 	SettingComponent,
-	NgbdModalBasic,
+	//NgbdModalBasic,
     RolemangementComponent,
     PlanmangementComponent,
 	ManagecmsComponent,
